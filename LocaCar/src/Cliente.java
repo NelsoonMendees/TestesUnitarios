@@ -15,6 +15,11 @@ public class Cliente {
     }
 
     public Cliente() {
+        this.cpf = "00000000000";
+        this.nome = "User";
+        this.dataNascimento = "00/00/0000";
+        this.email = "user@email.com";
+        this.telefone = "00000000000";
     }
 
     public String getCpf() {
@@ -23,12 +28,9 @@ public class Cliente {
 
     public void setCpf(String cpf) {
 
-        if (Validacoes.isCPF(cpf) == true) {
+        if (Validacoes.isCPF(cpf) == true)
             this.cpf = cpf;
-        } else {
-            this.cpf = "Invalido!";
-        }
-
+        return;
     }
 
     public String getNome() {
@@ -36,6 +38,8 @@ public class Cliente {
     }
 
     public void setNome(String nome) {
+        if (nome == "")
+            return;
         this.nome = nome;
     }
 
@@ -44,11 +48,9 @@ public class Cliente {
     }
 
     public void setDataNascimento(String dataNascimento) {
-        if (Validacoes.isDateValid(dataNascimento) == true) {
+        if (Validacoes.isDateValid(dataNascimento) == true)
             this.dataNascimento = dataNascimento;
-        } else {
-            this.dataNascimento = "Invalida!";
-        }
+        return;
 
     }
 
@@ -57,11 +59,9 @@ public class Cliente {
     }
 
     public void setEmail(String email) {
-        if (Validacoes.isValidEmail(email) == true) {
+        if (Validacoes.isValidEmail(email) == true)
             this.email = email;
-        } else {
-            this.email = "Invalido!";
-        }
+        return;
     }
 
     public String getTelefone() {
@@ -69,12 +69,9 @@ public class Cliente {
     }
 
     public void setTelefone(String telefone) {
-        if (Validacoes.isFoneValid(telefone) == true) {
+        if (Validacoes.isFoneValid(telefone) == true)
             this.telefone = telefone;
-        } else {
-            this.telefone = "Invalido!";
-        }
-
+        return;
     }
 
 }

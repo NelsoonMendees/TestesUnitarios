@@ -7,6 +7,12 @@ public class Veiculo {
     private double valorKm;
 
     public Veiculo() {
+        this.placa = "AAA-0000";
+        this.marca = "Default";
+        this.modelo = "Default";
+        this.ano = 0000;
+        this.km = 0;
+        this.valorKm = 10.5;
     }
 
     public Veiculo(String placa, String marca, String modelo, Integer ano, float km, double valorKm) {
@@ -23,11 +29,10 @@ public class Veiculo {
     }
 
     public void setPlaca(String placa) {
-        if (Validacoes.isPlacaValid(placa)) {
+        if (Validacoes.isPlacaValid(placa))
             this.placa = placa;
-        } else {
-            this.placa = "Invalida!";
-        }
+        return;
+
     }
 
     public String getMarca() {
@@ -35,6 +40,8 @@ public class Veiculo {
     }
 
     public void setMarca(String marca) {
+        if (marca == "")
+            return;
         this.marca = marca;
     }
 
@@ -43,6 +50,8 @@ public class Veiculo {
     }
 
     public void setModelo(String modelo) {
+        if (modelo == "")
+            return;
         this.modelo = modelo;
     }
 
@@ -51,11 +60,8 @@ public class Veiculo {
     }
 
     public void setAno(Integer ano) {
-        if (ano > 2023) {
-            this.ano = 2022;
-        } else if (ano < 2010) {
-            this.ano = 2012;
-        }
+        if (ano > 2023 || ano < 2010)
+            return;
         this.ano = ano;
 
     }
@@ -65,9 +71,8 @@ public class Veiculo {
     }
 
     public void setKm(float km) {
-        if(km < 0.0){
-            this.km = 0;
-        }
+        if (km < 0 || km > 90000)
+            return;
         this.km = km;
     }
 
@@ -76,12 +81,9 @@ public class Veiculo {
     }
 
     public void setValorKm(double valorKm) {
-        if (valorKm < 0.0) {
-            this.valorKm = 10.00;
-        } else {
-            this.valorKm = valorKm;
-        }
-
+        if (valorKm <= 0.0)
+            return;
+        this.valorKm = valorKm;
     }
 
 }

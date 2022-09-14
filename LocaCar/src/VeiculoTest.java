@@ -3,18 +3,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class VeiculoTest {
-    Veiculo veiculo = new Veiculo();
+    Veiculo veiculo = new Veiculo("OMQ-3863", "VW", "Golf", 2022, 1800, 10.5);
+    Veiculo veic = new Veiculo();
 
     @Test
-    void testGetAno() {
-        veiculo.setAno(2022);
+    void testGetAnoValido() {
+        assertEquals(2022, veiculo.getAno());
+    }
+
+    @Test
+    void testGetAnoComConstrutorVazio() {
+        assertEquals(0000, veic.getAno());
+    }
+
+    @Test
+    void testGetAnoMaior() {
+        veiculo.setAno(2024);
         assertEquals(2022, veiculo.getAno());
     }
 
     @Test
     void testGetAnoInvalido() {
-        veiculo.setAno(2009);
-        assertEquals(2012, veiculo.getAno());
+        veic.setAno(2009);
+        assertEquals(0, veic.getAno());
     }
 
     @Test
@@ -26,12 +37,18 @@ public class VeiculoTest {
     @Test
     void testGetKmInvalido() {
         veiculo.setKm(-122);
-        assertEquals(0, veiculo.getKm());
+        assertEquals(1800.00, veiculo.getKm());
     }
 
     @Test
     void testGetMarca() {
         veiculo.setMarca("VW");
+        assertEquals("VW", veiculo.getMarca());
+    }
+
+    @Test
+    void testSetMarcaVazio(){
+        veiculo.setMarca("");
         assertEquals("VW", veiculo.getMarca());
     }
 
@@ -43,19 +60,24 @@ public class VeiculoTest {
 
     @Test
     void testGetPlaca() {
-        veiculo.setPlaca("OMQ-3863");
+        assertEquals("OMQ-3863", veiculo.getPlaca());
+    }
+
+    @Test
+    void testSetPlacaInvalida() {
+        veiculo.setPlaca("00a-aa44");
         assertEquals("OMQ-3863", veiculo.getPlaca());
     }
 
     @Test
     void testGetValorKmValido() {
-        veiculo.setValorKm(12.00);
-        assertEquals(12.00, veiculo.getValorKm());
+        veiculo.setValorKm(12.5);
+        assertEquals(12.5, veiculo.getValorKm());
     }
 
     @Test
     void testGetValorKmInvalido() {
-        veiculo.setValorKm(-1.00);
-        assertEquals(10.00, veiculo.getValorKm());
+        veiculo.setValorKm(-1.0);
+        assertEquals(10.5, veiculo.getValorKm());
     }
 }

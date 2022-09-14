@@ -14,7 +14,7 @@ public class ClienteTest {
     @Test
     void testGetCpfInvalido() {
         cli.setCpf("999999999990");
-        assertEquals("Invalido!", cli.getCpf());
+        assertEquals("00000000000", cli.getCpf());
     }
 
     @Test
@@ -26,7 +26,7 @@ public class ClienteTest {
     @Test
     void testGetDataNascimentoInvalida() {
         cli.setDataNascimento("32/10/1991");
-        assertEquals("Invalida!", cli.getDataNascimento());
+        assertEquals("00/00/0000", cli.getDataNascimento());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class ClienteTest {
     @Test
     void testGetEmailInvalido() {
         cli.setEmail("nelson_mendes.live.com");
-        assertEquals("Invalido!", cli.getEmail());
+        assertEquals("user@email.com", cli.getEmail());
     }
 
     @Test
@@ -56,6 +56,6 @@ public class ClienteTest {
     @Test
     void testGetTelefoneInvalido() {
         cli.setTelefone("629999999299");
-        assertEquals("Invalido!", cli.getTelefone());
+        assertEquals("00000000000", cli.getTelefone());
     }
 }
